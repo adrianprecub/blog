@@ -8,16 +8,24 @@ import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
-
-        System.out.printf("Hello and welcome!");
+        //configure JobRunr
         JobRunr
                 .configure()
+                //provide in memory storage
                 .useStorageProvider(new InMemoryStorageProvider())
                 .useDashboard()
                 .useBackgroundJobServer()
                 .initialize();
 
-        BackgroundJob.enqueue(() -> System.out.println("This is a background job!"));
-        BackgroundJob.schedule(LocalDateTime.now().plusMinutes(5), () -> System.out.println("This is a scheduled job!"));
+        MyService myService = new MyService();
+
+        //one time job
+        BackgroundJob.enqueue(() -> myService.enqueuedJob());
+
+        //scheduled job
+        BackgroundJob.schedule(LocalDateTime.now().plusMinutes(5), () -> myService.scheduledJob());
+
+        //recurring job
+        BackgroundJob.scheduleRecurrently("my-recurring-job", "*/1 * * * *", () -> myService.recurringJob());
     }
 }
