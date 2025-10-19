@@ -1,0 +1,66 @@
+[
+  "https://feeds.bloomberg.com/markets/news.rss",
+  "https://www.reutersagency.com/feed/?taxonomy=best-topics&post_type=best",
+  "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+  "https://www.ft.com/markets?format=rss",
+  "https://finance.yahoo.com/news/rssindex",
+  "https://seekingalpha.com/market_currents.xml",
+  "https://www.benzinga.com/feed",
+  "https://www.fool.com/feeds/fool-rss-feed.aspx",
+  "https://www.investors.com/feed/",
+  "https://stocktwits.com/feed",
+  "https://www.tradingview.com/feed/",
+  "https://www.barrons.com/xml/rss/3_7031.xml",
+  "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+  "https://www.forbes.com/investing/feed/",
+  "https://www.coindesk.com/arc/outboundfeeds/rss/",
+  "https://cointelegraph.com/rss",
+  "https://bitcoinmagazine.com/feed",
+  "https://www.federalreserve.gov/feeds/press_all.xml",
+  "https://www.sec.gov/news/pressreleases.rss",
+  "https://tradingeconomics.com/rss/news.aspx",
+  "https://techcrunch.com/feed/",
+  "https://www.theverge.com/rss/index.xml",
+  "https://feeds.arstechnica.com/arstechnica/index",
+  "https://www.etftrends.com/feed/",
+  "https://www.etf.com/feeds/rss/articles",
+  "https://www.politico.com/rss/technology.xml",
+  "https://tech.eu/feed/",
+  "https://siliconangle.com/feed/",
+  "https://venturebeat.com/feed/",
+  "https://thequantuminsider.com/feed/",
+  "https://quantumcomputingreport.com/feed/",
+  "https://www.technologyreview.com/feed/",
+  "https://spectrum.ieee.org/feeds/feed.rss",
+  "https://physicsworld.com/feed/",
+  "https://www.biopharmadive.com/feeds/news/",
+  "https://www.biospace.com/rss/",
+  "https://www.genengnews.com/feed/",
+  "https://9to5mac.com/feed/",
+  "https://research.ibm.com/blog/rss",
+  "https://ai.googleblog.com/feeds/posts/default"
+]
+
+
+[
+  "https://www.engadget.com/rss.xml",
+  "https://feeds.arstechnica.com/arstechnica/index",
+  "https://www.theverge.com/rss/index.xml",
+  "https://www.wired.com/feed/rss",
+  "https://www.technologyreview.com/topnews.rss",
+  "https://techcrunch.com/feed/"
+]
+
+
+[
+  "https://www.wired.com/feed/rss",
+  "https://techcrunch.com/feed/",
+  "https://www.theverge.com/rss/index.xml",
+  "https://arstechnica.com/feed/",
+  "https://www.technologyreview.com/feed/",
+  "https://www.engadget.com/rss.xml",
+  "https://hackaday.com/feed/",
+  "https://www.techmeme.com/feed.xml",
+  "https://news.ycombinator.com/rss",
+  "https://www.cnet.com/rss/news/"
+]
