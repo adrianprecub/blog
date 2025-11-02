@@ -1,0 +1,54 @@
+model {
+  user = actor 'End User' { description 'Uses web or mobile app' }
+  paymentGateway = system 'Payment Gateway' { description 'Third-party payment provider' }
+
+  saas = system 'Our SaaS Platform' {
+    mobileAppFront = mobileApp 'Mobile App (iOS/Android)'
+    webFront = component 'Web Frontend' {
+      description 'React SPA'
+      style { icon tech:react }
+    }
+
+    backend = service 'Backend Services' {
+      auth = component 'Auth Service'
+      billing = component 'Billing Service'
+      dataProc = component 'Data Processing Service'
+
+      db = database 'PostgreSQL Cluster' { style { icon tech:postgresql } }
+      bus = messageBus 'Kafka Bus' { style { icon tech:kafka } }
+
+      auth -> db 'reads/writes user credentials'
+      billing -> paymentGateway 'processes payments'
+      billing -[async]-> bus 'publishes BillingCompleted'
+      dataProc -> bus 'consumes BillingCompleted'
+      dataProc -> db 'reads subscription and report data'
+    }
+
+    webFront -> backend 'HTTP requests'
+    mobileAppFront -> auth 'authenticate user'
+    mobileAppFront -> dataProc 'request reports'
+    webFront -> billing 'create subscription'
+    user -> webFront 'uses browser'
+    user -> mobileAppFront 'uses mobile app'
+  }
+
+  paymentGateway -> backend.db 'verifies payment'
+}
+
+views {
+  view landscape {
+    title 'Landscape: End users and major systems'
+    include user, paymentGateway, saas
+  }
+
+  view container of saas {
+    title 'Containers of the SaaS Platform'
+    include saas.*
+    exclude saas.backend.dataProc
+  }
+
+  view components of backend {
+    title 'Backend Component View'
+    include backend.*, paymentGateway
+  }
+}

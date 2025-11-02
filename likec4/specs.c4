@@ -1,0 +1,26 @@
+specification {
+  element actor {
+    style { shape person; color green }
+  }
+  element system {
+    style { shape rectangle; color indigo }
+  }
+  element service {
+    style { shape rectangle; color amber }
+  }
+  element component {
+    style { shape rectangle; color gray }
+  }
+  element mobileApp {
+    style { shape mobile; color primary }
+  }
+  element messageBus {
+    style { shape queue; color muted }
+  }
+  element database {
+    style { shape cylinder; color secondary }
+  }
+  relationship async {
+    style { line dotted; color amber; head vee }
+  }
+}
