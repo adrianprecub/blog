@@ -1,0 +1,76 @@
+name: Voice2MD
+options:
+  bundleIdPrefix: com.adrianprecub
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+fileGroups:
+  - CLAUDE.md
+  - README.md
+  - app-plan.md
+  - project.yml
+  - .gitignore
+
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGNING_REQUIRED: "NO"
+    CODE_SIGNING_ALLOWED: "NO"
+    ENABLE_HARDENED_RUNTIME: "NO"
+    DEAD_CODE_STRIPPING: "YES"
+
+targets:
+  Voice2MD:
+    type: application
+    platform: macOS
+    sources:
+      - path: Voice2MD
+        excludes:
+          - "Info.plist"
+    resources:
+      - path: Voice2MD/Resources/Prompts
+        type: folder
+    info:
+      path: Voice2MD/Info.plist
+      properties:
+        LSUIElement: true
+        CFBundleDisplayName: Voice2MD
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        NSHumanReadableCopyright: "© 2026 Adrian Precub"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.adrianprecub.Voice2MD
+        PRODUCT_NAME: Voice2MD
+
+  Voice2MDTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: Voice2MDTests
+    dependencies:
+      - target: Voice2MD
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.adrianprecub.Voice2MDTests
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Voice2MD.app/Contents/MacOS/Voice2MD"
+
+schemes:
+  Voice2MD:
+    build:
+      targets:
+        Voice2MD: all
+        Voice2MDTests: [test]
+    test:
+      targets:
+        - Voice2MDTests
+    run:
+      config: Debug
+    archive:
+      config: Release
